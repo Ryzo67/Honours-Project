@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "C_Controller.generated.h"
+#include "DrawDebugHelpers.h"
 
 UCLASS()
 class HONOURS_PROJECT_API AC_Controller : public ACharacter
@@ -18,6 +19,13 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+
+
+private:
+
+	void RayCast();
+
 
 public:	
 	// Called every frame

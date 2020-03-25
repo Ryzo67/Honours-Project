@@ -30,5 +30,18 @@ void AC_Controller::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+	InputComponent->BindAxis("MoveX", this, &AC_Controller::Vertical_Movement);
+	InputComponent = > BindAxis("MoveY", this, &AC_Controller::Horizontal_Movement);
+
+	InputComponent = > BindAxis("CameraSide", this, &AC_Controller::AddControllerYawInput);
+	InputComponent->BindAxis("CameraUp", this, &AC_Controller::AddControllerPitchInput);
+
+	InputComponent = > BindAction("Interaction", IE_Pressed, this, &AC_Controller::Collect);
+    InputComponent->BindAction("Ray", IE_Pressed, this, &AC_Controller::RayCast);
+	InputComponent->BindAction("InventoryPlus", IE_Pressed, this, &AC_Controller::InventoryPlus);
+	InputComponent->BindAction("InventoryMinus", IE_Pressed, this, &AC_Controller::InventoryMinus);
+
 }
+
+
 
